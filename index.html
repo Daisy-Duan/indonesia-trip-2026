@@ -160,6 +160,7 @@
   .ov-collapse.compact>summary{font-size:13px; font-weight:700; color:var(--sub); padding:11px 14px;}
   .ov-collapse .it{border-radius:0;}
   .ov-collapse .it table{border-radius:0;}
+  .ov-collapse .grid2{margin-top:0; padding:12px 16px 16px;}
   .ov-row{display:grid; grid-template-columns:118px 1fr 108px; gap:10px; align-items:center; padding:8px 14px; border-bottom:1px solid var(--line); font-size:13px;}
   .ov-row:last-child{border-bottom:none;}
   .ov-row:nth-child(even){background:#fff3d6;}
@@ -398,7 +399,7 @@
     <section>
       <h3><span class="bar" style="background:#3b82f6"></span>行程互动地图 · 真实地点</h3>
       <div class="im-card">
-        <div class="im-head"><h4>🗺 印尼行程地图（真实地点）</h4><p>乌布 · 喜德门&佩妮达 · 水明漾&仓古 · 金巴兰&乌鲁瓦图 · 泗水/东爪哇 · 龙目岛 · 科莫多 ｜ 9/26 – 10/5</p></div>
+        <div class="im-head"><h4>🗺 印尼行程地图（真实地点）</h4><p>东爪哇 · 乌布 · 喜德门&佩妮达 · 水明漾&仓古 · 金巴兰&乌鲁瓦图 · 龙目岛 · 科莫多 ｜ 9/24 – 10/8</p></div>
         <div class="im-toolbar">
           <div id="idmap-days"></div>
           <div class="im-searchwrap">
@@ -422,7 +423,7 @@
         </div>
         <div id="idmap-noteBar" style="display:none"></div>
       </div>
-      <div class="cap">🗺 浏览器端真实地图（OpenStreetMap 瓦片 + OSRM 车程 + Nominatim 搜索，免 Key），<b>需联网</b>加载；片区数据与《行程概括》一致（9/23–9/25 东爪哇段未含）。</div>
+      <div class="cap">🗺 浏览器端真实地图（OpenStreetMap 瓦片 + OSRM 车程 + Nominatim 搜索，免 Key），<b>需联网</b>加载；片区数据与《行程概括》一致（含东爪哇段与科莫多船宿各停靠点）。</div>
     </section>
 
     <section>
@@ -674,11 +675,16 @@
 
     <section>
       <h3><span class="bar" style="background:#00b578"></span>三个点值回票价</h3>
-      <div class="grid2">
+      
+      <details class="ov-collapse" open><summary><span class="bar" style="background:#00b578"></span>📍 景点 · 3 处</summary><div class="grid2">
         <div class="spot red"><b>🌋 Bromo</b><span class="tag">· 腾格尔火山群 · 日出打卡</span><div class="d">02:00 私享吉普上 <b>Penanjakan 观景台</b>看「沙海 + 火山口 + 日出云海」同框；再下沙海徒步或骑马（IDR 150–250k）登火山口边缘阶梯。凌晨 <b>5–15℃</b>，穿厚。向导 Kariadi。</div></div>
         <div class="spot blue"><b>💦 Tumpak Sewu</b><span class="tag">· 千层瀑布 · 下峡谷 1.5–2h</span><div class="d">印尼最壮观的「千层」瀑布，水帘从环形崖壁倾泻。需随当地向导<b>下到峡谷底</b>，路湿滑、水汽极重 —— 相机手机务必装防水袋，备换洗衣物与防滑鞋。</div></div>
         <div class="spot green"><b>🏔 Semeru Terrace</b><span class="tag">· 塞梅鲁火山观景台 · 05:00 日出</span><div class="d">Lumajang 的梯田式观景台，正对爪哇最高峰 <b>Semeru（3,676m）</b>。清晨常有云海 + 火山同框，人少、出片。约 15–20℃，带薄外套。</div></div>
-      </div>
+      </div></details>
+    
+      <details class="ov-collapse"><summary><span class="bar" style="background:#ff7b2e"></span>✨ 打卡点 · 1 处</summary><div class="grid2">
+        <div class="spot pink"><b>🌄 Teras Semeru（景观餐厅）</b><span class="tag">· 9/25 清晨 · 日出机位</span><div class="d">Lumajang 梯田式景观餐厅，正对 Semeru 主峰，05:00 看日出云海的最佳机位，也是热咖啡 + 早餐补给点（9/25 时间轴已排）。</div></div>
+      </div></details>
     </section>
 
     <div class="warn purple"><div class="ic">🎬</div><div><b>拍摄执行</b>：Sewu 水帘 + Semeru 云海 + Bromo 沙海，A-roll / B-roll 双线已排入 <b>RUNDOWN 01</b>（11 镜，含 2 个航拍点）。<a class="ext" href="#" onclick="go('shoot'); return false;">去拍摄页 ›</a></div></div>
@@ -897,18 +903,36 @@
 
     <section>
       <h3><span class="bar" style="background:#00b578"></span>必去 &amp; 可选</h3>
-      <div class="grid2">
-        <div class="spot pink"><b>🏝 Alas Harum Bali（秋千+鸟巢）</b><span class="tag">· 9/27 早二选一</span><div class="d">乌布德格拉朗招牌秋千+鸟巢+丛林秘境，买含秋千套餐约 ¥100–150/人。与 <b>Pulina Bali</b> 同片区（Tegallalang，<b>离乌布中心 25–30min 车程</b>），<b>9/27 早上二选一</b>，拍完 <b>10:50 出发</b>去 SPA。</div></div>
-        <div class="spot pink"><b>📸 Pulina Bali（泳池照）</b><span class="tag">· 9/27 早二选一</span><div class="d">Tegallalang 的咖啡庄园 + 秋千 + 网红<b>泳池拍照点</b>（背景是梯田），还能免费品尝猫屎咖啡。<b>与 Alas Harum 二选一</b>，都是出片点；离乌布中心 25–30min 车程，早上拍完 <b>10:50 出发</b>去 SPA 正好。</div></div>
-        <div class="spot purple"><b>🛁 Green Tara Spa · Keliki</b><span class="tag">· 9/27 12:00–14:00 · 已预约</span><div class="d">乌布西北郊 Keliki，<b>Jl. RSI Markandya II</b>，离乌布中心 10–20 分钟车程，就在 <b>Campuhan 山脊步道北端 Bangkiang Sidem</b> 旁边。<br><b>已预约 · 现场付</b>：两人各 2h 疗程 —— <b>Earth</b> / <b>Water</b>，各 <b>Rp 480,000</b>，加 15% 税费合计 <b>Rp 1,104,000 ≈ ¥502</b>。<br>⚠️ 官网要求<b>提前 15 分钟到</b>（即 11:45 前），SPA 完直接 🚗1.5h 去 Sidemen 竹屋，<b>不用折返乌布市中心</b>；刷卡<b>选 IDR 结算</b>。</div></div>
-        <div class="spot green"><b>🎋 Sidemen Retreats · Mountain Bamboo House / Turtle House</b><span class="tag">· 9/27 住 1 晚 · 已付</span><div class="d"><b>9/27 14:00 从 Green Tara Spa（Keliki）出发，🚗1.5h，15:30 抵达</b>（入住时间 14:00，此时到正好）。整个 Sidemen 是梯田河谷，竹屋挂在半山腰，看阿贡火山方向、清晨常有云海，<b>是全程最出片的一晚</b>。<br><b>已官网直订</b>：房费 IDR 8,300,000 ＋ <b>Floating Breakfast 漂浮早餐（2 人）</b> IDR 350,000 ＝ <b>IDR 8,650,000 ≈ ¥3,932</b>（招行全币种 Visa 已刷）。<br>⚠️ 竹屋通常<b>无空调、楼梯陡、虫子多</b>；想拍晨雾就得 06:00 起 —— 反正泳池里还有一顿漂浮早餐，值。</div></div>
+      
+      <div class="spot green"><b>🎋 Sidemen Retreats · Mountain Bamboo House / Turtle House</b><span class="tag">· 9/27 住 1 晚 · 已付</span><div class="d"><b>9/27 14:00 从 Green Tara Spa（Keliki）出发，🚗1.5h，15:30 抵达</b>（入住时间 14:00，此时到正好）。整个 Sidemen 是梯田河谷，竹屋挂在半山腰，看阿贡火山方向、清晨常有云海，<b>是全程最出片的一晚</b>。<br><b>已官网直订</b>：房费 IDR 8,300,000 ＋ <b>Floating Breakfast 漂浮早餐（2 人）</b> IDR 350,000 ＝ <b>IDR 8,650,000 ≈ ¥3,932</b>（招行全币种 Visa 已刷）。<br>⚠️ 竹屋通常<b>无空调、楼梯陡、虫子多</b>；想拍晨雾就得 06:00 起 —— 反正泳池里还有一顿漂浮早餐，值。</div></div>
+      <div class="spot green"><b>🏨 水明漾 2 晚 + 金巴兰 1 晚</b><span class="tag">· 9/29–10/1</span><div class="d"><b>9/29、9/30 连住水明漾</b>：佩妮达回来顺路，餐饮/咖啡馆最密集；9/30 去看 Kecak 当天<u>不用搬行李</u>。<br><b>10/1 搬金巴兰 Balquisse 住最后一晚</b>（<b>Plantation Junior Suite</b> · ¥1,481.2 · <b>含早餐</b>）：距机场仅 <b>10–15min</b>，10/2 早退房去机场最近最省心。</div></div>
+    
+      <details class="ov-collapse" open><summary><span class="bar" style="background:#00b578"></span>📍 景点 · 4 处</summary><div class="grid2">
         <div class="spot"><b>🐒 圣猴森林 + Campuhan 山脊步道</b><span class="tag">· 可选顺路</span><div class="d">圣猴森林门票约 ¥50/人，猴子会抢东西，收起墨镜零食；Campuhan 免费，全程 2km 平缓，<b>北端出来就是 Green Tara Spa</b>。本行程不排固定时段，9/26 晚或 9/27 早有体力就顺路走。</div></div>
         <div class="spot blue"><b>🏞 佩尼达岛 Nusa Penida</b><span class="tag">· 当日往返 · 一整天</span><div class="d">西线必去：Kelingking 精灵坠崖、Angel's Billabong 天使浴池、Broken Beach 破碎海滩。上岛包车约 ¥300–400/两人最省力（岛上路烂）。<br><b>🚢 已定 Sanur 出发</b>：每天 90+ 班 06:30–17:00、45min、IDR 150–250k、落 Banjar Nyuh 离西线最近。<b>9/28 已订 Sanur 的 Sri Phala，距码头约 1km，9/29 早班快艇就在家门口</b>；出发前按当日船班订票，<b>备晕船药</b>。</div></div>
         <div class="spot orange"><b>🌅 乌鲁瓦图 Uluwatu（情人崖）+ Kecak 火舞</b><span class="tag">· 日落必看 · 9/30</span><div class="d">庙票 IDR 50k + Kecak IDR 150k。火舞固定两场 <b>18:00–19:00 / 19:00–20:00</b>，10 月日落约 18:10，<b>选 18:00 场才有夕阳在舞台后</b>；<b>每晚售罄、必须线上预购</b>（改在 <b>9/30</b> 看，<b>避开 10/1 国庆人流</b>）。注意野猴抢东西。</div></div>
-        <div class="spot"><b>🦞 金巴兰 Jimbaran 海鲜晚餐</b><span class="tag">· 沙滩烧烤</span><div class="d">机场南侧海湾，傍晚沙滩现烤龙虾/大虾，两人 ¥300–600；安排在 <b>9/30 Kecak 火舞之后（20:00）</b>正合适，吃完 🚗30–45min 回水明漾住。</div></div>
-        <div class="spot green"><b>🏨 水明漾 2 晚 + 金巴兰 1 晚</b><span class="tag">· 9/29–10/1</span><div class="d"><b>9/29、9/30 连住水明漾</b>：佩妮达回来顺路，餐饮/咖啡馆最密集；9/30 去看 Kecak 当天<u>不用搬行李</u>。<br><b>10/1 搬金巴兰 Balquisse 住最后一晚</b>（<b>Plantation Junior Suite</b> · ¥1,481.2 · <b>含早餐</b>）：距机场仅 <b>10–15min</b>，10/2 早退房去机场最近最省心。</div></div>
         <div class="spot"><b>🏛 乌布皇宫 + 市中心小店</b><span class="tag">· 9/26 晚</span><div class="d">皇宫本身很小，但周边小店值得逛：<b>Ticket to the Moon</b>（吊床）、<b>Seminan Coffee</b> 等，基本步行可达。9/26 住 <b>CloudSpace（乌布中心）</b>，<b>步行</b>来逛 1–2h，吃个晚餐再回酒店。</div></div>
-      </div>
+      </div></details>
+    
+      <details class="ov-collapse"><summary><span class="bar" style="background:#ff7b2e"></span>✨ 打卡点 · 9 处</summary><div class="grid2">
+        <div class="spot pink"><b>🏝 Alas Harum Bali（秋千+鸟巢）</b><span class="tag">· 9/27 早二选一</span><div class="d">乌布德格拉朗招牌秋千+鸟巢+丛林秘境，买含秋千套餐约 ¥100–150/人。与 <b>Pulina Bali</b> 同片区（Tegallalang，<b>离乌布中心 25–30min 车程</b>），<b>9/27 早上二选一</b>，拍完 <b>10:50 出发</b>去 SPA。</div></div>
+        <div class="spot pink"><b>📸 Pulina Bali（泳池照）</b><span class="tag">· 9/27 早二选一</span><div class="d">Tegallalang 的咖啡庄园 + 秋千 + 网红<b>泳池拍照点</b>（背景是梯田），还能免费品尝猫屎咖啡。<b>与 Alas Harum 二选一</b>，都是出片点；离乌布中心 25–30min 车程，早上拍完 <b>10:50 出发</b>去 SPA 正好。</div></div>
+        <div class="spot purple"><b>🛁 Green Tara Spa · Keliki</b><span class="tag">· 9/27 12:00–14:00 · 已预约</span><div class="d">乌布西北郊 Keliki，<b>Jl. RSI Markandya II</b>，离乌布中心 10–20 分钟车程，就在 <b>Campuhan 山脊步道北端 Bangkiang Sidem</b> 旁边。<br><b>已预约 · 现场付</b>：两人各 2h 疗程 —— <b>Earth</b> / <b>Water</b>，各 <b>Rp 480,000</b>，加 15% 税费合计 <b>Rp 1,104,000 ≈ ¥502</b>。<br>⚠️ 官网要求<b>提前 15 分钟到</b>（即 11:45 前），SPA 完直接 🚗1.5h 去 Sidemen 竹屋，<b>不用折返乌布市中心</b>；刷卡<b>选 IDR 结算</b>。</div></div>
+        <div class="spot"><b>☕ Seniman Coffee Studio</b><span class="tag">· 乌布 · 精品咖啡</span><div class="d">乌布本地烘焙网红咖啡馆，手冲好且不贵，离 CloudSpace 步行可达，9/26 晚逛皇宫顺路。</div></div>
+        <div class="spot"><b>🎪 Ticket To The Moon</b><span class="tag">· 乌布 · 手作吊床店</span><div class="d">巴厘岛原创吊床品牌总店，伴手礼首选（吊床/挂椅），就在乌布皇宫周边步行圈。</div></div>
+        <div class="spot"><b>🥐 KOU Bali</b><span class="tag">· 乌布 · 咖啡/烘焙</span><div class="d">乌布中心高人气法式烘焙咖啡店，可颂和早餐出名，离皇宫几分钟步行。</div></div>
+        <div class="spot blue"><b>🛒 Bintang Supermarket</b><span class="tag">· 水明漾 · 采购补给</span><div class="d">水明漾地标性大超市，零食/饮料/防晒/伴手礼一站式，9/29–10/1 住这附近随时补货。</div></div>
+        <div class="spot pink"><b>🍹 Potato Head Beach Club</b><span class="tag">· 水明漾 · 海滩俱乐部</span><div class="d">水明漾最有名的日落 Beach Club（无边泳池+日落露台），散座不用预订，日落前 1h 到位。</div></div>
+        <div class="spot orange"><b>🏄 Blue Point Beach</b><span class="tag">· 乌鲁瓦图 · 冲浪/悬崖海景</span><div class="d">悬崖下的海湾，9/30 Kecak 之前顺路打卡；想冲浪就约一节（还没想好，看状态），浪适中、风景出片。</div></div>
+      </div></details>
+    
+      <details class="ov-collapse"><summary><span class="bar" style="background:#6366f1"></span>🍽 餐厅 · 5 处</summary><div class="grid2">
+        <div class="spot"><b>🦞 金巴兰 Jimbaran 海鲜晚餐</b><span class="tag">· 沙滩烧烤</span><div class="d">机场南侧海湾，傍晚沙滩现烤龙虾/大虾，两人 ¥300–600；安排在 <b>9/30 Kecak 火舞之后（20:00）</b>正合适，吃完 🚗30–45min 回水明漾住。</div></div>
+        <div class="spot"><b>🍛 Merah Putih Restaurant</b><span class="tag">· 水明漾 · 印尼精致料理</span><div class="d">水明漾高端印尼菜代表，穹顶建筑 + 精致改良菜，晚餐人均 ¥150–250，建议提前订座。</div></div>
+        <div class="spot"><b>🥩 Barbacoa Bali</b><span class="tag">· 水明漾 · 炭烤</span><div class="d">炭火烤肉/海鲜南美风餐厅，氛围放松、肉量扎实，适合 9/29 或 9/30 晚餐。</div></div>
+        <div class="spot blue"><b>🍝 La Lucciola</b><span class="tag">· 水明漾 · 海边意餐</span><div class="d">海滩边两层意式老牌餐厅，日落位视野好、出品稳定，午餐/晚餐皆宜，离住处步行可达。</div></div>
+        <div class="spot green"><b>🌮 La Santa Rosa</b><span class="tag">· 乌鲁瓦图 · 餐厅/酒吧</span><div class="d">乌鲁瓦图悬崖区的墨西哥风餐吧，10/1 看 Kecak 火舞后顺路小酌，日落景观位。</div></div>
+      </div></details>
     </section>
 
     <div class="warn purple"><div class="ic">🎬</div><div><b>拍摄执行</b>：Pulina 泳池照 / Alas 秋千 + <b>Green Tara SPA 空镜</b> + 竹屋晨雾 + <b>漂浮早餐</b> + Kelingking 悬崖 + Kecak 火舞，A-roll / B-roll 双线已排入 <b>RUNDOWN 02</b>（11 镜 · 含访谈式旁白 + 2 航拍点）。<a class="ext" href="#" onclick="go('shoot'); return false;">去拍摄页 ›</a></div></div>
@@ -1035,15 +1059,23 @@
 
     <section>
       <h3><span class="bar" style="background:#00b578"></span>圣吉吉 &amp; Kuta 南部 打卡 &amp; 美食</h3>
-      <div class="grid2">
+      
+      <details class="ov-collapse" open><summary><span class="bar" style="background:#00b578"></span>📍 景点 · 5 处</summary><div class="grid2">
         <div class="spot purple"><b>⛰ Bukit Merese 山丘</b><span class="tag">· 本次必去 · Kuta 东侧</span><div class="d">Kuta 东边的一座草坡小山，<b>步行 15–20min 登顶</b>，能俯瞰整个 Kuta 湾、Tanjung Aan 与连绵海岸线 —— <b>龙目岛最佳日落 / 全景机位</b>。日落前 1h 上山，带水、穿防滑鞋（坡陡无护栏）。</div></div>
         <div class="spot green"><b>🌅 Pura Batu Bolong 海上神庙</b><span class="tag">· 圣吉吉地标</span><div class="d">建在海礁上的小庙，退潮可走过去，<b>看日落最佳位置</b>；离圣吉吉主街 10min 车，傍晚本地人也来，气氛很好。</div></div>
         <div class="spot orange"><b>🏖 圣吉吉海滩 &amp; 日落散步道</b><span class="tag">· 主沙滩</span><div class="d">深色火山沙、浪比南部大（更适合泡海不追求碧绿），傍晚沿沙滩看日落 + 夜市小吃摊，住宿餐饮最集中。</div></div>
         <div class="spot"><b>🏖 Tanjung Aan 白沙滩</b><span class="tag">· Kuta 旁 · 可下水</span><div class="d">Kuta 东侧的双湾白沙滩，沙粒粗如胡椒、水色分层很干净，适合下水泡着；有本地 warung 和租椅，<b>和 Bukit Merese 顺路，半天连着玩</b>。</div></div>
         <div class="spot blue"><b>🌊 Mawun 半月湾</b><span class="tag">· Kuta 西侧 · 人少</span><div class="d">被两侧山头夹住的半月形海湾，浪小、人少，适合躺着发呆游泳；从 Kuta 骑摩托约 15–20min，沿海一路风景很好。</div></div>
+      </div></details>
+    
+      <details class="ov-collapse"><summary><span class="bar" style="background:#ff7b2e"></span>✨ 打卡点 · 1 处</summary><div class="grid2">
         <div class="spot pink"><b>🛵 北线骑行：Malimbu + Puncak Pusuk 猴林</b><span class="tag">· 摩托/包车 40min</span><div class="d">Malimbu 观景台俯瞰整条海湾海岸线，继续北行到 <b>Puncak Pusuk</b> 雨林猴群（路边就有，别投喂、管好食物）；半天往返很舒服。</div></div>
+      </div></details>
+    
+      <details class="ov-collapse"><summary><span class="bar" style="background:#6366f1"></span>🍽 餐厅 · 2 处</summary><div class="grid2">
         <div class="spot"><b>🍗 Ayam Taliwang 烤鸡</b><span class="tag">· 龙目岛招牌菜</span><div class="d">香料烤整鸡（辣、香、皮脆），配白饭和 plecing kangkung 空心菜，圣吉吉沿街 Warung 人均 ¥20–40。</div></div>
-      </div>
+        <div class="spot orange"><b>🍢 圣吉吉海滩夜市小吃摊</b><span class="tag">· 傍晚 · 沿沙滩</span><div class="d">傍晚圣吉吉主沙滩沿线的本地夜市摊，烤鱼/沙嗲/现榨汁，人均 ¥10–30，日落散步顺路解决晚餐。</div></div>
+      </div></details>
     </section>
 
     <div class="pn">
@@ -1191,14 +1223,23 @@
 
     <section>
       <h3><span class="bar" style="background:#ff7b2e"></span>船宿必打卡</h3>
-      <div class="grid2">
+      
+      <details class="ov-collapse" open><summary><span class="bar" style="background:#00b578"></span>📍 景点 · 5 处</summary><div class="grid2">
         <div class="spot green"><b>⛰ 帕达尔岛 Padar</b><span class="tag">· 人间塞尔达 · 日出徒步</span><div class="d">登顶俯瞰黑/白/粉三色海湾同框，「现实版塞尔达」，D2 清晨 5:00 出发日出光线最出片，登山 30–40 分钟。</div></div>
         <div class="spot pink"><b>🌸 粉红沙滩 Pink Beach</b><span class="tag">· 亚洲罕见</span><div class="d">珊瑚碎屑染出的粉色，上午 9 点前最粉，浮潜看珊瑚鱼群。</div></div>
         <div class="spot orange"><b>🦎 林卡/科莫多岛寻龙</b><span class="tag">· 3米巨蜥 · 持证向导</span><div class="d">科莫多龙对血腥味敏感，生理期务必提前告知向导；保持 5 米、别跑别背对。门票+税只收现金约 ¥450–600/人。</div></div>
-        <div class="spot"><b>🌊 Manta Point</b><span class="tag">· 与 4 米魔鬼鱼同游</span><div class="d">7–9 月遇见率最高，浮潜即可看，别碰别追。</div></div>
         <div class="spot purple"><b>🏖 Taka Makassar</b><span class="tag">· 拖尾白沙洲 · ⚠️ 本次不含</span><div class="d">退潮出现的白色沙洲，航拍出片——但 Nonauly 3D2N 行程不含此点，本次略过，不用惦记。</div></div>
         <div class="spot"><b>🦇 卡隆岛 Kalong 蝙蝠</b><span class="tag">· 黄昏上万蝙蝠出巢</span><div class="d">D2 傍晚 17:00–19:00 卡限岛落日蝙蝠（Kalong 即"蝙蝠"，船上看即可，配夕阳非常壮观）。</div></div>
-      </div>
+      </div></details>
+    
+      <details class="ov-collapse"><summary><span class="bar" style="background:#ff7b2e"></span>✨ 打卡点 · 2 处</summary><div class="grid2">
+        <div class="spot"><b>🌊 Manta Point</b><span class="tag">· 与 4 米魔鬼鱼同游</span><div class="d">7–9 月遇见率最高，浮潜即可看，别碰别追。</div></div>
+        <div class="spot purple"><b>💆 Manta Spa</b><span class="tag">· Labuan Bajo · 镇上</span><div class="d">镇上口碑 SPA，船宿 3 天后 10/7 回港晚或 10/8 早做个按摩放松，离 Kaliwatu 步行可达。</div></div>
+      </div></details>
+    
+      <details class="ov-collapse"><summary><span class="bar" style="background:#6366f1"></span>🍽 餐厅 · 1 处</summary><div class="grid2">
+        <div class="spot"><b>🍽 Ra Signature</b><span class="tag">· 10/7 回港夜宿 · 含晚餐</span><div class="d">Labuan Bajo 海景酒店餐厅，10/7 回港夜宿于此（含晚餐+早餐），10/8 早餐后镇上自由活动/买手信，下午送机 QZ***。</div></div>
+      </div></details>
     </section>
 
     <div class="warn purple"><div class="ic">🎬</div><div><b>拍摄执行</b>：帕达尔长焦 + 蝙蝠日落 + 船上日常，A-roll / B-roll 双线已排入 <b>RUNDOWN 03</b>（10 镜，全程禁飞 → 长焦 + 水下为主）。<a class="ext" href="#" onclick="go('shoot'); return false;">去拍摄页 ›</a></div></div>
@@ -1696,7 +1737,7 @@
 <script>
 (function(){
 function boot(){
-const DATA = {"title": "印尼行程地图（真实地点）", "subtitle": "乌布 · 喜德门&佩妮达 · 水明漾&仓古 · 金巴兰&乌鲁瓦图 · 泗水/东爪哇 · 龙目岛 · 科莫多 | 2026-09-26 ~ 10-05", "note": "片区按出行日期排序。酒店标「✅已订」。pending 数组 = 待定区（地图灰色标记、不计车程，页面内可随时拖入行程）。坐标为片区级近似，页面搜索框可校正/添加。车程由浏览器端 OSRM 计算（跨海回退直线距离）。", "days": [{"date": "9/26–9/28", "label": "乌布 Ubud", "items": [{"name": "Cloudspace Ubud", "type": "stay", "lat": -8.506, "lng": 115.262, "time": "", "note": "✅已订酒店"}, {"name": "Seniman Coffee Studio", "type": "poi", "lat": -8.505, "lng": 115.259, "time": "", "note": "咖啡馆"}, {"name": "Ticket To The Moon Shop", "type": "poi", "lat": -8.508, "lng": 115.263, "time": "", "note": "手作店"}, {"name": "KOU Bali", "type": "poi", "lat": -8.506, "lng": 115.264, "time": "", "note": "咖啡/餐饮"}, {"name": "圣泉寺 Tirta Empul", "type": "poi", "lat": -8.5266, "lng": 115.2589, "time": "", "note": "寺庙·景点"}, {"name": "乌布皇宫 Ubud Palace", "type": "poi", "lat": -8.5068, "lng": 115.2628, "time": "", "note": "宫殿·景点"}, {"name": "圣猴森林公园 Monkey Forest", "type": "poi", "lat": -8.5185, "lng": 115.2557, "time": "", "note": "景点"}, {"name": "Bali Pulina", "type": "poi", "lat": -8.43, "lng": 115.28, "time": "", "note": "Agrotourism·景点"}, {"name": "德格拉朗梯田 Tegalalang", "type": "poi", "lat": -8.431, "lng": 115.276, "time": "", "note": "梯田·景点"}, {"name": "Green Tara Spa Ubud", "type": "poi", "lat": -8.507, "lng": 115.261, "time": "", "note": "SPA"}]}, {"date": "9/28–9/29", "label": "喜德门 & 佩妮达（Sidemen + Nusa Penida）", "items": [{"name": "Veluvana Mountain", "type": "stay", "lat": -8.455, "lng": 115.435, "time": "", "note": "✅已订（Sidemen 营地）"}, {"name": "Sri Phala Resort & Villa", "type": "stay", "lat": -8.4842, "lng": 115.4452, "time": "", "note": "✅已订（Sidemen）"}, {"name": "沙努尔港 Sanur Port", "type": "transit", "lat": -8.687, "lng": 115.2611, "time": "", "note": "渡轮码头 → 佩妮达"}], "pending": [{"name": "精灵沙滩（Nusa Penida）", "type": "poi", "lat": -8.71, "lng": 115.45, "time": "", "note": "海滩·景点·可能不去"}, {"name": "Angel's Billabong（Nusa Penida）", "type": "poi", "lat": -8.684, "lng": 115.452, "time": "", "note": "天然泳池·景点·可能不去"}]}, {"date": "9/29", "label": "水明漾 & 仓古（Seminyak + Canggu）", "items": [{"name": "The Prime Seminyak", "type": "stay", "lat": -8.69, "lng": 115.165, "time": "", "note": "✅已订酒店"}, {"name": "Laris Stone", "type": "poi", "lat": -8.691, "lng": 115.162, "time": "", "note": "店铺"}, {"name": "Bintang Supermarket", "type": "poi", "lat": -8.69, "lng": 115.17, "time": "", "note": "超市"}, {"name": "Seminyak Village", "type": "poi", "lat": -8.682, "lng": 115.161, "time": "", "note": "商场"}, {"name": "Petitenget", "type": "poi", "lat": -8.679, "lng": 115.157, "time": "", "note": "区域/餐厅"}, {"name": "Merah Putih Restaurant", "type": "poi", "lat": -8.679, "lng": 115.158, "time": "", "note": "餐厅"}, {"name": "Barbacoa Bali", "type": "poi", "lat": -8.68, "lng": 115.16, "time": "", "note": "餐厅"}, {"name": "Potato Head Beach Club", "type": "poi", "lat": -8.694, "lng": 115.158, "time": "", "note": "海滩俱乐部"}, {"name": "La Lucciola", "type": "poi", "lat": -8.687, "lng": 115.158, "time": "", "note": "餐厅·海滩"}]}, {"date": "9/29–9/30", "label": "金巴兰 & 乌鲁瓦图（Jimbaran + Uluwatu）", "items": [{"name": "Balquisse Heritage Hotel", "type": "stay", "lat": -8.79, "lng": 115.16, "time": "", "note": "✅已订酒店（Jimbaran）"}, {"name": "Blue Point Beach", "type": "poi", "lat": -8.832, "lng": 115.085, "time": "", "note": "海滩·冲浪"}, {"name": "Kecak Uluwatu（乌鲁瓦图寺）", "type": "poi", "lat": -8.829, "lng": 115.084, "time": "", "note": "寺庙·Kecak 火舞"}, {"name": "Rock Bar（Ayana）", "type": "poi", "lat": -8.791, "lng": 115.147, "time": "", "note": "悬崖酒吧"}, {"name": "La Santa Rosa", "type": "poi", "lat": -8.8, "lng": 115.1, "time": "", "note": "餐厅/酒吧"}]}, {"date": "9/30–10/1", "label": "泗水 · 东爪哇（Tumpak Sewu→Semeru→Bromo 环线）", "items": [{"name": "朱安达国际机场 SUB", "type": "depart", "lat": -7.3794, "lng": 112.7869, "time": "", "note": "东爪哇环线起点（出发）"}, {"name": "Tumpak Sewu Waterfall", "type": "poi", "lat": -8.228, "lng": 112.917, "time": "", "note": "瀑布·景点"}, {"name": "Artha Cottages", "type": "stay", "lat": -8.205, "lng": 112.935, "time": "", "note": "✅已订酒店（近 Tumpak Sewu）"}, {"name": "Teras Semeru", "type": "poi", "lat": -8.15, "lng": 112.93, "time": "", "note": "景观餐厅·景点"}, {"name": "BAWANGAN BROMO HOTEL", "type": "stay", "lat": -7.93, "lng": 112.958, "time": "", "note": "✅已订酒店（近 Cemoro Lawang）"}, {"name": "Cemoro Lawang", "type": "poi", "lat": -7.9219, "lng": 112.9647, "time": "", "note": "Bromo 门户村落"}, {"name": "Penanjakan 观景台", "type": "poi", "lat": -7.9245, "lng": 112.9056, "time": "", "note": "日出观景台"}, {"name": "朱安达国际机场 SUB", "type": "transit", "lat": -7.3794, "lng": 112.7869, "time": "", "note": "东爪哇环线终点（离港）"}]}, {"date": "10/2–10/3", "label": "龙目岛 Lombok", "items": [{"name": "龙目岛国际机场 LOP", "type": "transit", "lat": -8.757, "lng": 116.276, "time": "", "note": "抵达/离港"}, {"name": "Katamaran Hotel & Resort", "type": "stay", "lat": -8.894, "lng": 116.299, "time": "", "note": "✅已订酒店（Kuta Lombok）"}, {"name": "布基特梅雷斯 Bukit Merese", "type": "poi", "lat": -8.92, "lng": 116.46, "time": "", "note": "小山丘·景点"}, {"name": "Tanjung Aan Beach", "type": "poi", "lat": -8.9, "lng": 116.45, "time": "", "note": "海滩·景点"}, {"name": "Malimbu Hill", "type": "poi", "lat": -8.55, "lng": 116.07, "time": "", "note": "观景山·景点"}]}, {"date": "10/4–10/5", "label": "科莫多 Komodo（Labuan Bajo）", "items": [{"name": "Komodo International Airport LBJ", "type": "transit", "lat": -8.499, "lng": 119.887, "time": "", "note": "抵达/离港"}, {"name": "Manta Spa", "type": "poi", "lat": -8.5175, "lng": 119.8887, "time": "", "note": "SPA"}, {"name": "Kaliwatu Villas and Residences", "type": "stay", "lat": -8.5175, "lng": 119.889, "time": "", "note": "✅已订酒店"}, {"name": "Ra Signature", "type": "poi", "lat": -8.518, "lng": 119.889, "time": "", "note": "餐厅/酒吧"}]}]};
+const DATA = {"title": "印尼行程地图（真实地点）","subtitle": "东爪哇 · 乌布 · 喜德门&佩妮达 · 水明漾&仓古 · 金巴兰&乌鲁瓦图 · 龙目岛 · 科莫多 | 2026-09-24 ~ 10-08","note": "片区按出行日期排序。酒店标「✅已订」。pending 数组 = 待定区（地图灰色标记、不计车程，页面内可随时拖入行程）。坐标为片区级近似，页面搜索框可校正/添加。车程由浏览器端 OSRM 计算（跨海回退直线距离）。","days": [{"date": "9/24–9/26","label": "泗水 · 东爪哇（Tumpak Sewu→Semeru→Bromo 环线）","items": [{"name": "朱安达国际机场 SUB","type": "depart","lat": -7.3794,"lng": 112.7869,"time": "","note": "东爪哇环线起点（出发）"},{"name": "Tumpak Sewu Waterfall","type": "poi","lat": -8.228,"lng": 112.917,"time": "","note": "瀑布·景点"},{"name": "Artha Cottages","type": "stay","lat": -8.205,"lng": 112.935,"time": "","note": "✅已订酒店（近 Tumpak Sewu）"},{"name": "Teras Semeru","type": "poi","lat": -8.15,"lng": 112.93,"time": "","note": "景观餐厅·景点"},{"name": "BAWANGAN BROMO HOTEL","type": "stay","lat": -7.93,"lng": 112.958,"time": "","note": "✅已订酒店（近 Cemoro Lawang）"},{"name": "Cemoro Lawang","type": "poi","lat": -7.9219,"lng": 112.9647,"time": "","note": "Bromo 门户村落"},{"name": "Penanjakan 观景台","type": "poi","lat": -7.9245,"lng": 112.9056,"time": "","note": "日出观景台"},{"name": "朱安达国际机场 SUB","type": "transit","lat": -7.3794,"lng": 112.7869,"time": "","note": "东爪哇环线终点（离港）"}]},{"date": "9/26–9/27","label": "乌布 Ubud","items": [{"name": "Cloudspace Ubud","type": "stay","lat": -8.506,"lng": 115.262,"time": "","note": "✅已订酒店"},{"name": "Seniman Coffee Studio","type": "poi","lat": -8.505,"lng": 115.259,"time": "","note": "咖啡馆"},{"name": "Ticket To The Moon Shop","type": "poi","lat": -8.508,"lng": 115.263,"time": "","note": "手作店"},{"name": "KOU Bali","type": "poi","lat": -8.506,"lng": 115.264,"time": "","note": "咖啡/餐饮"},{"name": "圣泉寺 Tirta Empul","type": "poi","lat": -8.5266,"lng": 115.2589,"time": "","note": "寺庙·景点"},{"name": "乌布皇宫 Ubud Palace","type": "poi","lat": -8.5068,"lng": 115.2628,"time": "","note": "宫殿·景点"},{"name": "圣猴森林公园 Monkey Forest","type": "poi","lat": -8.5185,"lng": 115.2557,"time": "","note": "景点"},{"name": "Bali Pulina","type": "poi","lat": -8.43,"lng": 115.28,"time": "","note": "Agrotourism·景点"},{"name": "德格拉朗梯田 Tegalalang","type": "poi","lat": -8.431,"lng": 115.276,"time": "","note": "梯田·景点"},{"name": "Green Tara Spa Ubud","type": "poi","lat": -8.507,"lng": 115.261,"time": "","note": "SPA"}],"pending": [{"name": "Alas Harum Bali（秋千+鸟巢）","type": "poi","lat": -8.4387,"lng": 115.2731,"time": "","note": "与 Pulina 二选一"}]},{"date": "9/27–9/29","label": "喜德门 & 佩妮达（Sidemen + Nusa Penida）","items": [{"name": "Veluvana Mountain","type": "stay","lat": -8.455,"lng": 115.435,"time": "","note": "✅已订（Sidemen 营地）"},{"name": "Sri Phala Resort & Villa","type": "stay","lat": -8.4842,"lng": 115.4452,"time": "","note": "✅已订（Sidemen）"},{"name": "沙努尔港 Sanur Port","type": "transit","lat": -8.687,"lng": 115.2611,"time": "","note": "渡轮码头 → 佩妮达"}],"pending": [{"name": "精灵沙滩（Nusa Penida）","type": "poi","lat": -8.71,"lng": 115.45,"time": "","note": "海滩·景点·可能不去"},{"name": "Angel's Billabong（Nusa Penida）","type": "poi","lat": -8.684,"lng": 115.452,"time": "","note": "天然泳池·景点·可能不去"}]},{"date": "9/29–10/1","label": "水明漾 & 仓古（Seminyak + Canggu）","items": [{"name": "The Prime Seminyak","type": "stay","lat": -8.69,"lng": 115.165,"time": "","note": "✅已订酒店"},{"name": "Laris Stone","type": "poi","lat": -8.691,"lng": 115.162,"time": "","note": "店铺"},{"name": "Bintang Supermarket","type": "poi","lat": -8.69,"lng": 115.17,"time": "","note": "超市"},{"name": "Seminyak Village","type": "poi","lat": -8.682,"lng": 115.161,"time": "","note": "商场"},{"name": "Petitenget","type": "poi","lat": -8.679,"lng": 115.157,"time": "","note": "区域/餐厅"},{"name": "Merah Putih Restaurant","type": "poi","lat": -8.679,"lng": 115.158,"time": "","note": "餐厅"},{"name": "Barbacoa Bali","type": "poi","lat": -8.68,"lng": 115.16,"time": "","note": "餐厅"},{"name": "Potato Head Beach Club","type": "poi","lat": -8.694,"lng": 115.158,"time": "","note": "海滩俱乐部"},{"name": "La Lucciola","type": "poi","lat": -8.687,"lng": 115.158,"time": "","note": "餐厅·海滩"}]},{"date": "10/1–10/2","label": "金巴兰 & 乌鲁瓦图（Jimbaran + Uluwatu）","items": [{"name": "Balquisse Heritage Hotel","type": "stay","lat": -8.79,"lng": 115.16,"time": "","note": "✅已订酒店（Jimbaran）"},{"name": "Blue Point Beach","type": "poi","lat": -8.832,"lng": 115.085,"time": "","note": "海滩·冲浪"},{"name": "Kecak Uluwatu（乌鲁瓦图寺）","type": "poi","lat": -8.829,"lng": 115.084,"time": "","note": "寺庙·Kecak 火舞"},{"name": "Rock Bar（Ayana）","type": "poi","lat": -8.791,"lng": 115.147,"time": "","note": "悬崖酒吧"},{"name": "La Santa Rosa","type": "poi","lat": -8.8,"lng": 115.1,"time": "","note": "餐厅/酒吧"}]},{"date": "10/2–10/4","label": "龙目岛 Lombok（圣吉吉 + Kuta 南部）","items": [{"name": "龙目机场 LOP","type": "transit","lat": -8.7578,"lng": 116.2783,"time": "","note": "10/2 抵达 · 10/4 离港"},{"name": "Katamaran Resort","type": "stay","lat": -8.4855,"lng": 116.0423,"time": "","note": "✅已订 2 晚（圣吉吉）"},{"name": "Pura Batu Bolong 海上神庙","type": "poi","lat": -8.4885,"lng": 116.0336,"time": "","note": "海上神庙·日落"},{"name": "Malimbu 观景台","type": "poi","lat": -8.4598,"lng": 116.006,"time": "","note": "北线海岸观景"},{"name": "圣吉吉海滩 Senggigi","type": "poi","lat": -8.4838,"lng": 116.0443,"time": "","note": "主沙滩·日落散步"},{"name": "Kuta Lombok 镇","type": "poi","lat": -8.8886,"lng": 116.2876,"time": "","note": "南部大本营·租摩托"},{"name": "Tanjung Aan 白沙滩","type": "poi","lat": -8.9032,"lng": 116.3315,"time": "","note": "双湾白沙滩·可下水"},{"name": "Mawun 半月湾","type": "poi","lat": -8.8476,"lng": 116.2078,"time": "","note": "半月湾·人少"},{"name": "Bukit Merese 山丘","type": "poi","lat": -8.89,"lng": 116.33,"time": "","note": "日落全景·必去"}],"pending": []},{"date": "10/4–10/8","label": "科莫多 Komodo（Labuan Bajo）","items": [{"name": "Komodo International Airport LBJ","type": "transit","lat": -8.499,"lng": 119.887,"time": "","note": "抵达/离港"},{"name": "Manta Spa","type": "poi","lat": -8.5175,"lng": 119.8887,"time": "","note": "SPA"},{"name": "Kaliwatu Villas and Residences","type": "stay","lat": -8.5175,"lng": 119.889,"time": "","note": "✅已订酒店"},{"name": "Ra Signature","type": "poi","lat": -8.518,"lng": 119.889,"time": "","note": "餐厅/酒吧"},{"name": "Sebayur 塞巴尤尔岛","type": "poi","lat": -8.591,"lng": 119.635,"time": "","note": "D1 浮潜"},{"name": "Kalong 卡隆岛","type": "poi","lat": -8.61,"lng": 119.69,"time": "","note": "D1 傍晚蝙蝠日落"},{"name": "帕达尔岛 Padar","type": "poi","lat": -8.609,"lng": 119.522,"time": "","note": "D2 清晨日出徒步"},{"name": "粉红沙滩 Pink Beach","type": "poi","lat": -8.587,"lng": 119.535,"time": "","note": "D2 上午"},{"name": "林卡/科莫多岛寻龙","type": "poi","lat": -8.549,"lng": 119.491,"time": "","note": "D2 持证向导"},{"name": "Manta Point","type": "poi","lat": -8.728,"lng": 119.53,"time": "","note": "D2 浮潜"},{"name": "Kelor 岛","type": "poi","lat": -8.576,"lng": 119.68,"time": "","note": "D3 登岛"},{"name": "Manjarite 岛","type": "poi","lat": -8.556,"lng": 119.615,"time": "","note": "D3 浮潜"}],"pending": [{"name": "Taka Makassar 拖尾白沙洲","type": "poi","lat": -8.719,"lng": 119.529,"time": "","note": "船宿行程不含 · 仅备忘"}]}]};
 
 const TYPE_META = {
   depart:  { color: "#3b82f6", label: "出发" },
