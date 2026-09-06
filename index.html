@@ -2082,5 +2082,19 @@ var ov=document.getElementById('overview');
 if(ov && ov.classList.contains('on')){ window._idmapBoot=null; boot(); }
 })();
 </script>
+<script>
+  /* 图片加载失败自动切 jsDelivr CDN 重试（github.io 国内直连不稳的兜底；error 不冒泡，用捕获） */
+  (function(){
+    var C='https://cdn.jsdelivr.net/gh/Daisy-Duan/indonesia-trip-2026@main/';
+    window.addEventListener('error',function(e){
+      var t=e.target;
+      if(t&&t.tagName==='IMG'&&!t.dataset.cdnfb){
+        t.dataset.cdnfb='1';
+        var s=t.getAttribute('src');
+        if(s&&s.indexOf('http')!==0){ t.src=C+s.replace(/^\.\//,''); }
+      }
+    },true);
+  })();
+</script>
 </body>
 </html>
