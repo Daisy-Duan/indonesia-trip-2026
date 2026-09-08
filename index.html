@@ -397,6 +397,24 @@
   #idmap-map{flex:0 0 auto; height:52vh;}
   .im-aside{flex:0 0 auto; max-width:none; min-width:0; border-left:none; border-top:1px solid #e0e7ff; max-height:46vh;}
 }
+
+/* ===== v7.38 勾选持久化 ===== */
+.ckbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:6px 0 10px;}
+.ckstat{font-size:12.5px;color:#6d6a8a;}
+.ckstat b{color:#231f3d;}
+.ckprog{display:inline-block;margin-left:9px;padding:2px 10px;border-radius:999px;
+  background:rgba(46,134,255,.10);color:#2e86ff;font-size:12px;font-weight:800;vertical-align:2px;}
+.ckprog.full{background:rgba(0,181,120,.15);color:#00b578;}
+.ckbtn{font:inherit;font-size:12px;font-weight:700;color:#6d6a8a;background:#fff;
+  border:1px solid var(--line);border-radius:999px;padding:5px 13px;cursor:pointer;transition:.15s;}
+.ckbtn:hover{color:#231f3d;border-color:#cfc7e0;background:#faf7fb;}
+table th.ckh,table td.ckc{width:34px;min-width:34px;text-align:center;padding-left:2px;padding-right:2px;}
+table td.ckc input[type=checkbox],.check input[type=checkbox]{width:16px;height:16px;
+  accent-color:#ff4d9d;cursor:pointer;vertical-align:-3px;}
+table tr.done td{opacity:.45;}
+table tr.done td:not(.ckc){text-decoration:line-through;}
+.check > div.done{opacity:.45;}
+.check > div.done span{text-decoration:line-through;}
 </style>
 <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
 </head>
@@ -429,8 +447,8 @@
   <div id="overview" class="page on">
 
     <div class="qgrid">
-      <div class="qcard"><div class="k">签证</div><div class="v purple">eVOA 落地签</div><div class="d">IDR 500,000≈¥230/人 · 提前 1–7 天 <a class="ext" href="https://molina.imigrasi.go.id" target="_blank">官网申请</a></div></div>
-      <div class="qcard"><div class="k">总预算</div><div class="v green">人均 2.4–2.9 万</div><div class="d">两人合计约 ¥4.86–5.85 万</div></div>
+      <div class="qcard"><div class="k">签证</div><div class="v purple">eVOA 落地签</div><div class="d">¥198/人（已办妥） · 提前 1–7 天 <a class="ext" href="https://evisa.imigrasi.go.id" target="_blank">官网申请</a></div></div>
+      <div class="qcard"><div class="k">总预算</div><div class="v green">人均 2.4–2.9 万</div><div class="d">两人合计约 ¥4.85–5.84 万</div></div>
       <div class="qcard"><div class="k">天气</div><div class="v cyan">干季·炎热</div><div class="d">往年同期（9月末–10月初）：海岸 27–32℃（巴厘/龙目/科莫多，少雨）；Bromo 凌晨 5–15℃、Semeru Terrace 约 15–20℃，备冲锋衣/薄外套。</div></div>
       <div class="qcard"><div class="k">时差</div><div class="v blue">东8区·基本无差</div><div class="d">巴厘/龙目/科莫多＝中国 UTC+8；<b>泗水属爪哇时间 WIB(UTC+7)，慢 1h</b> —— 9/26 飞抵巴厘岛即 +1h，手机自动对时。</div></div>
     </div>
@@ -1311,13 +1329,13 @@
     <div class="ph ph-va">
       <h2><span class="no">⑤</span>签证 &amp; 支付方式</h2>
       <div class="sub">eVOA 落地签三步走 + 换汇策略。本次不经吉隆坡中转，不涉及马来西亚 MDAC。</div>
-      <div class="chips"><span class="chip">🛂 IDR 500,000≈¥230/人</span><span class="chip">💳 Visa/Master 支付</span><span class="chip">💵 现金 ¥1,200–1,500/人</span></div>
+      <div class="chips"><span class="chip">🛂 eVOA ¥198/人</span><span class="chip">💳 Visa/Master 支付</span><span class="chip">💵 现金 ¥1,200–1,500/人</span></div>
     </div>
 
     <section>
       <h3><span class="bar" style="background:#00b578"></span>eVOA 落地签 · 三步</h3>
       <div class="steps">
-        <div class="step"><div class="n">STEP 1 · 出发前 1–7 天</div><div class="t">官网申请 eVOA</div><div class="d">只认官方域名 <a class="ext" href="https://molina.imigrasi.go.id" target="_blank">molina.imigrasi.go.id</a>。注册 → 填护照/入境日期/第一晚酒店 → 上传护照页(&lt;200KB) → <b>Visa/Mastercard 支付（不支持银联）</b> → 邮箱收 PDF，打印备用。</div></div>
+        <div class="step"><div class="n">STEP 1 · 出发前 1–7 天</div><div class="t">官网申请 eVOA</div><div class="d">只认官方域名 <a class="ext" href="https://evisa.imigrasi.go.id" target="_blank">evisa.imigrasi.go.id</a>。注册 → 填护照/入境日期/第一晚酒店 → 上传护照页(&lt;200KB) → <b>Visa/Mastercard 支付（不支持银联）</b> → 邮箱收 PDF，打印备用。</div></div>
         <div class="step"><div class="n">STEP 2 · 出发前 24h 内</div><div class="t">e-CD 海关申报</div><div class="d">在 <a class="ext" href="https://ecd.beacukai.go.id" target="_blank">ecd.beacukai.go.id</a> 提交电子入境申报（每人一份），生成二维码存手机，入境时扫描。</div></div>
         <div class="step"><div class="n">STEP 3 · 落地通关</div><div class="t">e-VOA 专用通道</div><div class="d">走专用通道 5–15 分钟通关。必备：护照有效期 ≥6 个月（从入境日算）+ 返程机票 PDF + 第一晚酒店订单 + 国际信用卡。</div></div>
       </div>
@@ -1398,16 +1416,16 @@
         <div class="bg-sub"><span>小计 · 人均 ¥4,250–6,800</span><span>总计 ¥8,500–13,600</span></div>
 
         <div class="bg-head">🛂 签证与杂费</div>
-        <div class="budget-row"><div class="item">🛂 签证 eVOA <span class="sub">¥230×2</span></div><div class="amt">¥460</div></div>
+        <div class="budget-row"><div class="item">🛂 签证 eVOA <span class="sub">¥198×2</span></div><div class="amt">¥396</div></div>
         <div class="budget-row"><div class="item">🧳 杂费 <span class="sub">打车/电话卡/保险/购物</span></div><div class="amt">¥3,000–5,000</div></div>
-        <div class="bg-sub"><span>小计 · 人均 ¥1,730–2,730</span><span>总计 ¥3,460–5,460</span></div>
+        <div class="bg-sub"><span>小计 · 人均 ¥1,698–2,698</span><span>总计 ¥3,396–5,396</span></div>
 
-        <div class="budget-row"><div class="item">💰 合计（两人）</div><div class="amt">约 ¥48,600–58,510<br><span class="range">人均 2.4–2.9 万</span></div></div>
+        <div class="budget-row"><div class="item">💰 合计（两人）</div><div class="amt">约 ¥48,536–58,446<br><span class="range">人均 2.4–2.9 万</span></div></div>
       </div>
       <div style="margin-top:18px; padding:16px; border:1px solid var(--line); border-radius:14px; background:#faf7fb;">
         <h4 style="margin:0 0 12px; font-size:15px; color:#231f3d;">📊 预算占比 · 人均口径（各项中点估算）</h4>
         <div style="display:flex; align-items:center; gap:26px; flex-wrap:wrap;">
-          <div style="width:180px; height:180px; border-radius:50%; flex:none; background:conic-gradient(#2e86ff 0 21.6%, #8b5cf6 21.6% 45.4%, #00b4d8 45.4% 53.0%, #00b578 53.0% 65.6%, #ff4d9d 65.6% 71.0%, #ffb703 71.0% 91.6%, #9aa0b5 91.6% 100%); position:relative; box-shadow:0 2px 10px rgba(35,31,61,.10);">
+          <div style="width:180px; height:180px; border-radius:50%; flex:none; background:conic-gradient(#2e86ff 0 21.6%, #8b5cf6 21.6% 45.4%, #00b4d8 45.4% 53.0%, #00b578 53.0% 65.6%, #ff4d9d 65.6% 71.0%, #ffb703 71.0% 91.7%, #9aa0b5 91.7% 100%); position:relative; box-shadow:0 2px 10px rgba(35,31,61,.10);">
             <div style="position:absolute; inset:38px; border-radius:50%; background:#faf7fb; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
               <div style="font-size:11px; color:#6d6a8a;">人均合计</div>
               <div style="font-size:19px; font-weight:800; color:#231f3d; line-height:1.3;">¥2.4–2.9万</div>
@@ -1419,11 +1437,11 @@
             <div style="display:flex; justify-content:space-between; gap:12px;"><span><span style="display:inline-block;width:11px;height:11px;border-radius:3px;background:#00b4d8;margin-right:8px;vertical-align:-1px;"></span>路费 · <b>7.6%</b></span><span style="color:#6d6a8a;">人均 ¥2,035</span></div>
             <div style="display:flex; justify-content:space-between; gap:12px;"><span><span style="display:inline-block;width:11px;height:11px;border-radius:3px;background:#00b578;margin-right:8px;vertical-align:-1px;"></span>科莫多 · <b>12.6%</b></span><span style="color:#6d6a8a;">人均 ¥3,375</span></div>
             <div style="display:flex; justify-content:space-between; gap:12px;"><span><span style="display:inline-block;width:11px;height:11px;border-radius:3px;background:#ff4d9d;margin-right:8px;vertical-align:-1px;"></span>活动体验 · <b>5.4%</b></span><span style="color:#6d6a8a;">人均 ¥1,451</span></div>
-            <div style="display:flex; justify-content:space-between; gap:12px;"><span><span style="display:inline-block;width:11px;height:11px;border-radius:3px;background:#ffb703;margin-right:8px;vertical-align:-1px;"></span>餐饮 · <b>20.6%</b></span><span style="color:#6d6a8a;">人均 ¥5,525</span></div>
-            <div style="display:flex; justify-content:space-between; gap:12px;"><span><span style="display:inline-block;width:11px;height:11px;border-radius:3px;background:#9aa0b5;margin-right:8px;vertical-align:-1px;"></span>签证与杂费 · <b>8.3%</b></span><span style="color:#6d6a8a;">人均 ¥2,230</span></div>
+            <div style="display:flex; justify-content:space-between; gap:12px;"><span><span style="display:inline-block;width:11px;height:11px;border-radius:3px;background:#ffb703;margin-right:8px;vertical-align:-1px;"></span>餐饮 · <b>20.7%</b></span><span style="color:#6d6a8a;">人均 ¥5,525</span></div>
+            <div style="display:flex; justify-content:space-between; gap:12px;"><span><span style="display:inline-block;width:11px;height:11px;border-radius:3px;background:#9aa0b5;margin-right:8px;vertical-align:-1px;"></span>签证与杂费 · <b>8.2%</b></span><span style="color:#6d6a8a;">人均 ¥2,198</span></div>
           </div>
         </div>
-        <p style="margin:12px 0 0; font-size:12px; color:#6d6a8a;">占比按各项金额中点估算；两人合计区间下限 ¥4.86 万 / 上限 ¥5.85 万，结构比例相近。机票+住宿+餐饮三项约占 <b>66%</b>。</p>
+        <p style="margin:12px 0 0; font-size:12px; color:#6d6a8a;">占比按各项金额中点估算；两人合计区间下限 ¥4.85 万 / 上限 ¥5.84 万，结构比例相近。机票+住宿+餐饮三项约占 <b>66%</b>。</p>
       </div>
     </section>
 
@@ -1432,7 +1450,7 @@
       <div class="warn"><div class="ic">⚠️</div><div><b>9/26 衔接最险 · 已定 JT*** 15:30</b>：14:00 到泗水机场只有 <b>1.5h</b> 到起飞。三个保命动作：①出发前跟司机书面确认 <b>11:00 准时从 Bawangan 发车</b>；②行李不托运、登机牌提前换好；③Bromo 那天别恋战，10:00 结束就走。冲锋衣（凌晨 5–15℃）、前一晚早睡。</div></div>
       <div class="warn pink"><div class="ic">⚠️</div><div><b>10/4 中午到 LBJ，船宿 10/5（周一）才发船</b>：共享船宿固定周一/周五启航，10/4 当天无 3D2N 班期，下午陆地游（石镜洞+Sylvia 日落）作缓冲，别误订成 10/4 登船。</div></div>
       <div class="warn"><div class="ic">⚠️</div><div><b>科莫多航班爱延误/取消</b>：若赶不上船宿，可花约 ¥150 拼快艇追船。</div></div>
-      <div class="warn"><div class="ic">⚠️</div><div><b>eVOA 仿冒网站 + 银联不能用</b>：只认 molina.imigrasi.go.id；支付只接受 Visa/Mastercard；护照有效期从<b>入境日</b>算 ≥6 个月。</div></div>
+      <div class="warn"><div class="ic">⚠️</div><div><b>eVOA 仿冒网站 + 银联不能用</b>：只认 evisa.imigrasi.go.id；支付只接受 Visa/Mastercard；护照有效期从<b>入境日</b>算 ≥6 个月。</div></div>
       <div class="warn pink"><div class="ic">⚠️</div><div><b>泗水→巴厘岛 +1h</b>：泗水用爪哇时间 WIB(UTC+7)，飞抵巴厘岛即 +1h；约车/约船宿时间记得对时区。</div></div>
       <div class="warn"><div class="ic">⚠️</div><div><b>佩妮达 9/29 是最满的一天</b>：约 10h（<b>Sri Phala 到 Banjar Nyuh 码头仅约 1km</b> → 45min 船 → 西线 → 返航）。<b>退房后行李免费寄存在 Sri Phala 前台</b>，16:15 回 Sanur 取了再去当晚住处。快艇会晕船，备晕船药；上岛包车比摩托安全省力。<b>船班若取消</b>：改东巴厘一日（Tirta Gangga 水宫 / Lempuyang 天门 / Virgin Beach）。</div></div>
       <div class="warn blue"><div class="ic">🎋</div><div><b>Sidemen 只住 1 晚（9/27），但行李全部随车上山</b>：竹屋在半山腰、楼梯陡 —— <b>只把过夜包 + 拍摄设备背上楼</b>，大件请司机 / 管家帮忙抬。<b>好处</b>：9/28 从 Sidemen <b>直奔 Sanur（🚗 1h30）</b>，<b>省掉回乌布折返取件的 40min</b>，也不用担心寄存件忘拿。</div></div>
@@ -1440,29 +1458,30 @@
     </section>
 
     <section>
-      <h3><span class="bar" style="background:#00b578"></span>行前清单</h3>
+      <h3><span class="bar" style="background:#00b578"></span>行前清单<span class="ckprog" data-prog="pack">0/21</span></h3>
+      <div class="ckbar"><span class="ckstat">✅ 已备 <b data-prog="pack">0/21</b> · 勾选后自动保存，换设备/清缓存会丢失</span><button type="button" class="ckbtn" data-clear="pack">清空清单</button></div>
       <div class="check">
-        <div><input type="checkbox"><span>eVOA 电子落地签（<a class="ext" href="https://molina.imigrasi.go.id" target="_blank">molina.imigrasi.go.id</a>，出发前 1–7 天）</span></div>
-        <div><input type="checkbox"><span>eVOA PDF 打印 + 手机存档</span></div>
-        <div><input type="checkbox"><span>e-CD 海关申报（入境前 24h，<a class="ext" href="https://ecd.beacukai.go.id" target="_blank">ecd.beacukai.go.id</a>）</span></div>
-        <div><input type="checkbox"><span>护照有效期 ≥6 个月 + 2 页空白</span></div>
-        <div><input type="checkbox"><span>机票订单打印（9/23 泗水 / 10/2 龙目 / 10/4 科莫多 / 10/8 回程）</span></div>
-        <div><input type="checkbox"><span>住宿订单打印：<b>CloudSpace 9/26 / 竹屋 9/27 / Sri Phala 9/28 / The Prime 9/29·9/30 / Balquisse 10/1 / Katamaran 10/2·10/3 / Kaliwatu 10/4 / Ra Signature 10/7</b>（eVOA 只需填第一晚）</span></div>
-        <div><input type="checkbox"><span>Visa/Master 信用卡（确认开通境外支付）</span></div>
-        <div><input type="checkbox"><span>印尼盾现金每人 ¥1,200–1,500（或 ATM 现取）</span></div>
-        <div><input type="checkbox"><span>冲锋衣/抓绒（火山凌晨 5–10℃）</span></div>
-        <div><input type="checkbox"><span>登山鞋 + 轻便徒步鞋 + 头灯</span></div>
-        <div><input type="checkbox"><span>相机/无人机防水袋（Sewu 峡谷水汽极重）</span></div>
-        <div><input type="checkbox"><span>晕船药 + 肠胃药 + 感冒药 + 蚊虫药</span></div>
-        <div><input type="checkbox"><span>高倍防晒 + 浮潜袜 + 泳衣 + 防水袋</span></div>
-        <div><input type="checkbox"><span><b>浮潜面罩</b>（自带更卫生，船宿 3 天每天下水都用它）</span></div>
-        <div><input type="checkbox"><span><b>高筒鞋套</b>（Bromo 沙海/火山灰，护住鞋和小腿，回来一抖就干净）</span></div>
-        <div><input type="checkbox"><span><b>口罩</b>（Bromo 沙尘 + 硫磺味，N95/KN95 最好）</span></div>
-        <div><input type="checkbox"><span><b>驱蚊液</b>（Sidemen 竹屋、海边傍晚蚊虫多）</span></div>
-        <div><input type="checkbox"><span>Green Tara Spa 预约确认单（9/27 12:00 · 现场付 Rp 1,104,000）</span></div>
-        <div><input type="checkbox"><span>欧标双圆孔转换插头（220V）</span></div>
-        <div><input type="checkbox"><span>印尼电话卡/eSIM（Telkomsel 信号最好）</span></div>
-        <div><input type="checkbox"><span>旅行保险（火山徒步+浮潜+延误）</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-01"><span>eVOA 电子落地签（<a class="ext" href="https://evisa.imigrasi.go.id" target="_blank">evisa.imigrasi.go.id</a>，出发前 1–7 天）</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-02"><span>eVOA PDF 打印 + 手机存档</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-03"><span>e-CD 海关申报（入境前 24h，<a class="ext" href="https://ecd.beacukai.go.id" target="_blank">ecd.beacukai.go.id</a>）</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-04"><span>护照有效期 ≥6 个月 + 2 页空白</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-05"><span>机票订单打印（9/23 泗水 / 10/2 龙目 / 10/4 科莫多 / 10/8 回程）</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-06"><span>住宿订单打印：<b>CloudSpace 9/26 / 竹屋 9/27 / Sri Phala 9/28 / The Prime 9/29·9/30 / Balquisse 10/1 / Katamaran 10/2·10/3 / Kaliwatu 10/4 / Ra Signature 10/7</b>（eVOA 只需填第一晚）</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-07"><span>Visa/Master 信用卡（确认开通境外支付）</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-08"><span>印尼盾现金每人 ¥1,200–1,500（或 ATM 现取）</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-09"><span>冲锋衣/抓绒（火山凌晨 5–10℃）</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-10"><span>登山鞋 + 轻便徒步鞋 + 头灯</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-11"><span>相机/无人机防水袋（Sewu 峡谷水汽极重）</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-12"><span>晕船药 + 肠胃药 + 感冒药 + 蚊虫药</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-13"><span>高倍防晒 + 浮潜袜 + 泳衣 + 防水袋</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-14"><span><b>浮潜面罩</b>（自带更卫生，船宿 3 天每天下水都用它）</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-15"><span><b>高筒鞋套</b>（Bromo 沙海/火山灰，护住鞋和小腿，回来一抖就干净）</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-16"><span><b>口罩</b>（Bromo 沙尘 + 硫磺味，N95/KN95 最好）</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-17"><span><b>驱蚊液</b>（Sidemen 竹屋、海边傍晚蚊虫多）</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-18"><span>Green Tara Spa 预约确认单（9/27 12:00 · 现场付 Rp 1,104,000）</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-19"><span>欧标双圆孔转换插头（220V）</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-20"><span>印尼电话卡/eSIM（Telkomsel 信号最好）</span></div>
+        <div><input type="checkbox" data-ck="ck-pack-21"><span>旅行保险（火山徒步+浮潜+延误）</span></div>
       </div>
     </section>
 
@@ -1569,59 +1588,60 @@
       <h3><span class="bar" style="background:#ff4d9d"></span>拍摄 RUNDOWN · 三条片子分镜表</h3>
       <div class="warn purple"><div class="ic">🎬</div><div><b>用法说明</b>：下表是拍摄现场的执行 rundown（制片向）。<b>素材列标注 A / B / A+B</b> —— <b>A-roll（主素材）</b>：人物主体、叙事动作、口播/访谈，<b>承载内容输入</b>；<b>B-roll（空镜/补充）</b>：风景、细节、氛围、过场，用来穿插过渡；<b>A+B</b>＝人物主体与空镜同框（如剪影落在日出里），剪辑时主 A、intercut B。<b>每条片子都排了 A-roll 与 B-roll 双线（A B 都带）</b>。<b>AI 后期列</b>标注该镜处理方式：静帧抽象化 / AI 视频串联 / —（直出）。<b>✅＝可飞无人机</b>，❌＝禁飞（对照上方速查表）。景别：特写/中景/全景/大全/航拍/微距/延时/升格。</div></div>
 
-      <h4 style="margin:18px 0 4px; font-size:15px; font-weight:800;">RUNDOWN 01 · 东爪哇「地球的粗粝感」（9/24–9/26 · 目标 4–6min）</h4>
+      <div class="ckbar"><span class="ckstat">🎬 已拍 <b data-prog="shoot">0/32</b> · 勾选状态保存在本机浏览器</span><button type="button" class="ckbtn" data-clear="shoot">清空拍摄勾选</button></div>
+      <h4 style="margin:18px 0 4px; font-size:15px; font-weight:800;">RUNDOWN 01 · 东爪哇「地球的粗粝感」（9/24–9/26 · 目标 4–6min）<span class="ckprog" data-prog="r1">0/11</span></h4>
       <p class="lead">调性：探索 / 自然力量 · BGM：低音铺底 + 风声白噪 · 开场一句话口播：「凌晨五点的泗水机场，困，但值得。」</p>
       <div class="it"><table>
-        <thead><tr><th>镜</th><th>时段·场景</th><th>画面内容</th><th>素材 A/B</th><th>景别·运镜</th><th>AI 后期</th><th>声音·备注</th></tr></thead>
+        <thead><tr><th class="ckh">✓</th><th>镜</th><th>时段·场景</th><th>画面内容</th><th>素材 A/B</th><th>景别·运镜</th><th>AI 后期</th><th>声音·备注</th></tr></thead>
         <tbody>
-          <tr><td class="day">S01</td><td class="date">9/24 05:05 泗水机场</td><td>拖着行李找司机、上车（凌晨机场的黑色幽默开场）</td><td>A</td><td>全景·跟拍</td><td>—</td><td>同期声：环境 + 哈欠</td></tr>
-          <tr><td class="day">S02</td><td class="date">车程 → Lumajang</td><td>车窗外爪哇乡村飞驰；手机录口播</td><td>A</td><td>车拍·侧窗</td><td>—</td><td>口播旁白</td></tr>
-          <tr><td class="day">S03</td><td class="date">09:30 Tumpak Sewu 观景台</td><td>千层瀑布 + 水汽全貌，人物惊叹背影</td><td>A+B</td><td>大全·航拍✅</td><td><b>水汽抽象静帧</b></td><td>瀑布声浪压过一切</td></tr>
-          <tr><td class="day">S04</td><td class="date">峡谷底部</td><td>仰拍水帘、被淋湿大笑</td><td>A</td><td>广角·仰拍</td><td>—</td><td>水声 + 笑场（vlog 高光）</td></tr>
-          <tr><td class="day">S05</td><td class="date">峡谷内</td><td>水帘微距、水珠慢动作</td><td>B</td><td>微距·固定</td><td><b>AI 抽象</b>：水帘→水墨线条</td><td>白噪 + 渐入音乐</td></tr>
-          <tr><td class="day">S06</td><td class="date">9/25 05:00 Semeru Terrace</td><td>云海 + 塞梅鲁日出，人物剪影侧身</td><td>A+B</td><td>航拍✅·长焦</td><td><b>云海抽象静帧</b></td><td>风声 → 音乐起</td></tr>
-          <tr><td class="day">S07</td><td class="date">9/26 02:00 Bromo</td><td>吉普车队灯串驶入沙海</td><td>B</td><td>慢门·延时</td><td>—</td><td>引擎声 + 黑暗</td></tr>
-          <tr><td class="day">S08</td><td class="date">05:15 Penanjakan</td><td>日出云海 + 沙海火山口同框，人物依偎剪影</td><td>A+B</td><td>长焦·固定</td><td><b>剪影抽象静帧</b></td><td>音乐高潮（全片情绪顶点）</td></tr>
-          <tr><td class="day">S09</td><td class="date">沙海</td><td>徒步 / 骑马剪影（逆光）</td><td>A</td><td>全景·逆光</td><td>—</td><td>—</td></tr>
-          <tr><td class="day">S10</td><td class="date">火山口阶梯</td><td>登顶，回头对镜头笑</td><td>A</td><td>中景·低机位</td><td>—</td><td>心跳 / 鼓点</td></tr>
-          <tr><td class="day">S11</td><td class="date">14:00 泗水机场 → JT***</td><td>狂奔值机（节奏加快、幽默）→ 窗外云层</td><td>A+B</td><td>跟拍 → 空镜</td><td><b>云层抽象转场</b></td><td>音乐切快 → 淡出</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r1-S01"></td><td class="day">S01</td><td class="date">9/24 05:05 泗水机场</td><td>拖着行李找司机、上车（凌晨机场的黑色幽默开场）</td><td>A</td><td>全景·跟拍</td><td>—</td><td>同期声：环境 + 哈欠</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r1-S02"></td><td class="day">S02</td><td class="date">车程 → Lumajang</td><td>车窗外爪哇乡村飞驰；手机录口播</td><td>A</td><td>车拍·侧窗</td><td>—</td><td>口播旁白</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r1-S03"></td><td class="day">S03</td><td class="date">09:30 Tumpak Sewu 观景台</td><td>千层瀑布 + 水汽全貌，人物惊叹背影</td><td>A+B</td><td>大全·航拍✅</td><td><b>水汽抽象静帧</b></td><td>瀑布声浪压过一切</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r1-S04"></td><td class="day">S04</td><td class="date">峡谷底部</td><td>仰拍水帘、被淋湿大笑</td><td>A</td><td>广角·仰拍</td><td>—</td><td>水声 + 笑场（vlog 高光）</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r1-S05"></td><td class="day">S05</td><td class="date">峡谷内</td><td>水帘微距、水珠慢动作</td><td>B</td><td>微距·固定</td><td><b>AI 抽象</b>：水帘→水墨线条</td><td>白噪 + 渐入音乐</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r1-S06"></td><td class="day">S06</td><td class="date">9/25 05:00 Semeru Terrace</td><td>云海 + 塞梅鲁日出，人物剪影侧身</td><td>A+B</td><td>航拍✅·长焦</td><td><b>云海抽象静帧</b></td><td>风声 → 音乐起</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r1-S07"></td><td class="day">S07</td><td class="date">9/26 02:00 Bromo</td><td>吉普车队灯串驶入沙海</td><td>B</td><td>慢门·延时</td><td>—</td><td>引擎声 + 黑暗</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r1-S08"></td><td class="day">S08</td><td class="date">05:15 Penanjakan</td><td>日出云海 + 沙海火山口同框，人物依偎剪影</td><td>A+B</td><td>长焦·固定</td><td><b>剪影抽象静帧</b></td><td>音乐高潮（全片情绪顶点）</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r1-S09"></td><td class="day">S09</td><td class="date">沙海</td><td>徒步 / 骑马剪影（逆光）</td><td>A</td><td>全景·逆光</td><td>—</td><td>—</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r1-S10"></td><td class="day">S10</td><td class="date">火山口阶梯</td><td>登顶，回头对镜头笑</td><td>A</td><td>中景·低机位</td><td>—</td><td>心跳 / 鼓点</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r1-S11"></td><td class="day">S11</td><td class="date">14:00 泗水机场 → JT***</td><td>狂奔值机（节奏加快、幽默）→ 窗外云层</td><td>A+B</td><td>跟拍 → 空镜</td><td><b>云层抽象转场</b></td><td>音乐切快 → 淡出</td></tr>
         </tbody>
       </table></div>
 
-      <h4 style="margin:22px 0 4px; font-size:15px; font-weight:800;">RUNDOWN 02 · 巴厘岛「山谷、SPA 与悬崖」（9/26–10/2 · 目标 5–7min）</h4>
+      <h4 style="margin:22px 0 4px; font-size:15px; font-weight:800;">RUNDOWN 02 · 巴厘岛「山谷、SPA 与悬崖」（9/26–10/2 · 目标 5–7min）<span class="ckprog" data-prog="r2">0/11</span></h4>
       <p class="lead">调性：文艺 / 轻幽默 / 慢生活 · BGM：木吉他 + 轻电子 · 开场一句话口播：「终于不用凌晨起床了。」</p>
       <div class="it"><table>
-        <thead><tr><th>镜</th><th>时段·场景</th><th>画面内容</th><th>素材 A/B</th><th>景别·运镜</th><th>AI 后期</th><th>声音·备注</th></tr></thead>
+        <thead><tr><th class="ckh">✓</th><th>镜</th><th>时段·场景</th><th>画面内容</th><th>素材 A/B</th><th>景别·运镜</th><th>AI 后期</th><th>声音·备注</th></tr></thead>
         <tbody>
-          <tr><td class="day">S01</td><td class="date">9/26 19:30 乌布市中心</td><td>入住 + 逛小店：吊床店 Ticket to the Moon、咖啡馆 Seminan Coffee（慢生活定调）</td><td>A</td><td>中景·手持</td><td>—</td><td>轻快吉他 + 街头声</td></tr>
-          <tr><td class="day">S02</td><td class="date">9/27 09:00 Pulina / Alas</td><td>泳池照 或 荡秋千（惊恐→大笑）<b>二选一</b>，同伴在下面拍</td><td>A</td><td>特写 + 全景</td><td>—</td><td>笑声（幽默担当）</td></tr>
-          <tr><td class="day">S03</td><td class="date">9/27 12:00 Green Tara Spa</td><td>SPA 空间空镜：精油、石臼、纱幔光影、庭院绿植（人物仅手部/背影，不出脸）</td><td>B</td><td>特写·固定 + 微距</td><td><b>纱幔光影抽象</b></td><td>水滴 / 轻音乐</td></tr>
-          <tr><td class="day">S04</td><td class="date">9/28 06:00 Sidemen 竹屋</td><td>晨雾中的竹屋俯拍（Mountain Bamboo House 外观全貌）</td><td>B</td><td>航拍✅·大远景</td><td><b>晨雾抽象静帧</b></td><td>鸟鸣</td></tr>
-          <tr><td class="day">S05</td><td class="date">竹屋泳池</td><td>🛁 <b>漂浮早餐</b> + 访谈式聊天（聊「为什么要来印尼」）—— <b>全片最出片的一镜</b></td><td>A</td><td>俯拍 + 中景·固定</td><td><b>早餐俯拍抽象静帧</b></td><td>同期声（可做全片旁白素材）</td></tr>
-          <tr><td class="day">S06</td><td class="date">9/29 佩妮达 Kelingking</td><td>悬崖 + 海，崖边剪影、跳起</td><td>A+B</td><td>航拍✅·大全</td><td><b>悬崖抽象静帧</b>（保主体）</td><td>海风</td></tr>
-          <tr><td class="day">S07</td><td class="date">Broken Beach</td><td>天然拱桥全景</td><td>B</td><td>航拍✅</td><td>—</td><td>浪声</td></tr>
-          <tr><td class="day">S08</td><td class="date">9/30 Uluwatu Kecak</td><td>火舞火焰特写、人群剪影、举手机拍</td><td>A+B</td><td>特写·低光</td><td>—</td><td>火舞吟唱（保留一段完整同期）</td></tr>
-          <tr><td class="day">S09</td><td class="date">金巴兰</td><td>海鲜特写、干杯、掰螃蟹笑场</td><td>A</td><td>特写 + 中景</td><td>—</td><td>笑场收尾</td></tr>
-          <tr><td class="day">S10</td><td class="date">10/1 自由日</td><td>补觉 / 泳池 / 金巴兰沙滩（轻松收尾，可选素材）</td><td>B</td><td>中景·手持</td><td>—</td><td>轻音乐</td></tr>
-          <tr><td class="day">尾</td><td class="date">10/2 登机前</td><td>回望巴厘 + 全片高光静帧串</td><td>A+B</td><td>中景</td><td><b>AI 高光静帧串</b></td><td>音乐淡出</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r2-S01"></td><td class="day">S01</td><td class="date">9/26 19:30 乌布市中心</td><td>入住 + 逛小店：吊床店 Ticket to the Moon、咖啡馆 Seminan Coffee（慢生活定调）</td><td>A</td><td>中景·手持</td><td>—</td><td>轻快吉他 + 街头声</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r2-S02"></td><td class="day">S02</td><td class="date">9/27 09:00 Pulina / Alas</td><td>泳池照 或 荡秋千（惊恐→大笑）<b>二选一</b>，同伴在下面拍</td><td>A</td><td>特写 + 全景</td><td>—</td><td>笑声（幽默担当）</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r2-S03"></td><td class="day">S03</td><td class="date">9/27 12:00 Green Tara Spa</td><td>SPA 空间空镜：精油、石臼、纱幔光影、庭院绿植（人物仅手部/背影，不出脸）</td><td>B</td><td>特写·固定 + 微距</td><td><b>纱幔光影抽象</b></td><td>水滴 / 轻音乐</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r2-S04"></td><td class="day">S04</td><td class="date">9/28 06:00 Sidemen 竹屋</td><td>晨雾中的竹屋俯拍（Mountain Bamboo House 外观全貌）</td><td>B</td><td>航拍✅·大远景</td><td><b>晨雾抽象静帧</b></td><td>鸟鸣</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r2-S05"></td><td class="day">S05</td><td class="date">竹屋泳池</td><td>🛁 <b>漂浮早餐</b> + 访谈式聊天（聊「为什么要来印尼」）—— <b>全片最出片的一镜</b></td><td>A</td><td>俯拍 + 中景·固定</td><td><b>早餐俯拍抽象静帧</b></td><td>同期声（可做全片旁白素材）</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r2-S06"></td><td class="day">S06</td><td class="date">9/29 佩妮达 Kelingking</td><td>悬崖 + 海，崖边剪影、跳起</td><td>A+B</td><td>航拍✅·大全</td><td><b>悬崖抽象静帧</b>（保主体）</td><td>海风</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r2-S07"></td><td class="day">S07</td><td class="date">Broken Beach</td><td>天然拱桥全景</td><td>B</td><td>航拍✅</td><td>—</td><td>浪声</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r2-S08"></td><td class="day">S08</td><td class="date">9/30 Uluwatu Kecak</td><td>火舞火焰特写、人群剪影、举手机拍</td><td>A+B</td><td>特写·低光</td><td>—</td><td>火舞吟唱（保留一段完整同期）</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r2-S09"></td><td class="day">S09</td><td class="date">金巴兰</td><td>海鲜特写、干杯、掰螃蟹笑场</td><td>A</td><td>特写 + 中景</td><td>—</td><td>笑场收尾</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r2-S10"></td><td class="day">S10</td><td class="date">10/1 自由日</td><td>补觉 / 泳池 / 金巴兰沙滩（轻松收尾，可选素材）</td><td>B</td><td>中景·手持</td><td>—</td><td>轻音乐</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r2-尾"></td><td class="day">尾</td><td class="date">10/2 登机前</td><td>回望巴厘 + 全片高光静帧串</td><td>A+B</td><td>中景</td><td><b>AI 高光静帧串</b></td><td>音乐淡出</td></tr>
         </tbody>
       </table></div>
 
-      <h4 style="margin:22px 0 4px; font-size:15px; font-weight:800;">RUNDOWN 03 · 科莫多「船上的三天」（10/4–10/8 · 目标 5–8min）</h4>
+      <h4 style="margin:22px 0 4px; font-size:15px; font-weight:800;">RUNDOWN 03 · 科莫多「船上的三天」（10/4–10/8 · 目标 5–8min）<span class="ckprog" data-prog="r3">0/10</span></h4>
       <p class="lead">调性：探险 / 史前感 + 船上生活日常 · BGM：低音铺底 + 弦乐 · 开场口播：「未来三天，我们住在一艘船上。」</p>
       <div class="it"><table>
-        <thead><tr><th>镜</th><th>时段·场景</th><th>画面内容</th><th>素材 A/B</th><th>景别·运镜</th><th>AI 后期</th><th>声音·备注</th></tr></thead>
+        <thead><tr><th class="ckh">✓</th><th>镜</th><th>时段·场景</th><th>画面内容</th><th>素材 A/B</th><th>景别·运镜</th><th>AI 后期</th><th>声音·备注</th></tr></thead>
         <tbody>
-          <tr><td class="day">S01</td><td class="date">10/4 12:20 LBJ 码头</td><td>落地 → 登船、认识船员（探索感开场）</td><td>A</td><td>跟拍·手持</td><td>—</td><td>环境音</td></tr>
-          <tr><td class="day">S02</td><td class="date">船上日常</td><td>一人绑头发 / 一人涂防晒、甲板早餐（vlog 幽默切片）</td><td>A</td><td>中景·固定</td><td>—</td><td>同期 + 轻音乐</td></tr>
-          <tr><td class="day">S03</td><td class="date">10/5 D1 浮潜点</td><td>水下珊瑚 + 鱼群（GoPro / 防水壳）</td><td>B</td><td>水下</td><td>—</td><td>水声</td></tr>
-          <tr><td class="day">S04</td><td class="date">Kalong 蝙蝠日落</td><td>蝙蝠群剪影掠过天空（❌禁飞，长焦）</td><td>B</td><td>长焦·剪影</td><td><b>AI 抽象</b>：蝙蝠群→墨点飞散</td><td>风声（史前感最强镜）</td></tr>
-          <tr><td class="day">S05</td><td class="date">10/6 帕达尔日出</td><td>登顶 + 三湾同框山脊（❌禁飞 → 长焦大全）</td><td>A+B</td><td>长焦·大全</td><td><b>山脊线条抽象</b></td><td>音乐起</td></tr>
-          <tr><td class="day">S06</td><td class="date">粉红沙滩</td><td>沙滩纹理 + 脚印、海水冲过</td><td>B</td><td>低机位</td><td><b>粉色抽象静帧</b></td><td>浪声</td></tr>
-          <tr><td class="day">S07</td><td class="date">科莫多岛寻龙</td><td>巨蜥长焦特写、ranger 持棍示意（保持距离）</td><td>B</td><td>400mm 长焦</td><td>—</td><td>低音警示音</td></tr>
-          <tr><td class="day">S08</td><td class="date">Manta 浮潜</td><td>蝠鲼滑过镜头下方</td><td>B</td><td>水下</td><td>—</td><td>水声 + 呼吸管声</td></tr>
-          <tr><td class="day">S09</td><td class="date">10/7 回港黄昏</td><td>甲板晒太阳、船上最后一晚晚餐</td><td>A</td><td>中景·黄昏</td><td>—</td><td>温暖收尾</td></tr>
-          <tr><td class="day">尾</td><td class="date">10/8 机场</td><td>黑场 + 字幕「下一站，回家剪片」</td><td>B</td><td>—</td><td>—</td><td>音乐淡出</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r3-S01"></td><td class="day">S01</td><td class="date">10/4 12:20 LBJ 码头</td><td>落地 → 登船、认识船员（探索感开场）</td><td>A</td><td>跟拍·手持</td><td>—</td><td>环境音</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r3-S02"></td><td class="day">S02</td><td class="date">船上日常</td><td>一人绑头发 / 一人涂防晒、甲板早餐（vlog 幽默切片）</td><td>A</td><td>中景·固定</td><td>—</td><td>同期 + 轻音乐</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r3-S03"></td><td class="day">S03</td><td class="date">10/5 D1 浮潜点</td><td>水下珊瑚 + 鱼群（GoPro / 防水壳）</td><td>B</td><td>水下</td><td>—</td><td>水声</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r3-S04"></td><td class="day">S04</td><td class="date">Kalong 蝙蝠日落</td><td>蝙蝠群剪影掠过天空（❌禁飞，长焦）</td><td>B</td><td>长焦·剪影</td><td><b>AI 抽象</b>：蝙蝠群→墨点飞散</td><td>风声（史前感最强镜）</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r3-S05"></td><td class="day">S05</td><td class="date">10/6 帕达尔日出</td><td>登顶 + 三湾同框山脊（❌禁飞 → 长焦大全）</td><td>A+B</td><td>长焦·大全</td><td><b>山脊线条抽象</b></td><td>音乐起</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r3-S06"></td><td class="day">S06</td><td class="date">粉红沙滩</td><td>沙滩纹理 + 脚印、海水冲过</td><td>B</td><td>低机位</td><td><b>粉色抽象静帧</b></td><td>浪声</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r3-S07"></td><td class="day">S07</td><td class="date">科莫多岛寻龙</td><td>巨蜥长焦特写、ranger 持棍示意（保持距离）</td><td>B</td><td>400mm 长焦</td><td>—</td><td>低音警示音</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r3-S08"></td><td class="day">S08</td><td class="date">Manta 浮潜</td><td>蝠鲼滑过镜头下方</td><td>B</td><td>水下</td><td>—</td><td>水声 + 呼吸管声</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r3-S09"></td><td class="day">S09</td><td class="date">10/7 回港黄昏</td><td>甲板晒太阳、船上最后一晚晚餐</td><td>A</td><td>中景·黄昏</td><td>—</td><td>温暖收尾</td></tr>
+          <tr><td class="ckc"><input type="checkbox" data-ck="ck-r3-尾"></td><td class="day">尾</td><td class="date">10/8 机场</td><td>黑场 + 字幕「下一站，回家剪片」</td><td>B</td><td>—</td><td>—</td><td>音乐淡出</td></tr>
         </tbody>
       </table></div>
     </section>
@@ -1657,7 +1677,7 @@
     </div>
   </div>
 
-  <div class="foot">航班时刻/价格以出票为准 · 签证政策以 <a class="ext" href="https://molina.imigrasi.go.id" target="_blank">molina.imigrasi.go.id</a> 为准</div>
+  <div class="foot">航班时刻/价格以出票为准 · 签证政策以 <a class="ext" href="https://evisa.imigrasi.go.id" target="_blank">evisa.imigrasi.go.id</a> 为准</div>
     </main>
   </div>
 </div>
@@ -2178,6 +2198,85 @@ if(ov && ov.classList.contains('on')){ window._idmapBoot=null; boot(); }
       }
     },true);
   })();
+</script>
+
+<script>
+(function(){
+  var KEY='idtrip:ck';
+  var boxes=document.querySelectorAll('input[type=checkbox][data-ck]');
+  if(!boxes.length) return;
+  var store={};
+  try{ store=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ store={}; }
+  var warned=false;
+  function save(){
+    try{ localStorage.setItem(KEY, JSON.stringify(store)); }
+    catch(e){ if(!warned){ warned=true; console.warn('勾选状态无法保存（可能是隐私模式/本地文件限制）'); } }
+  }
+  function grpOf(k){
+    if(k.indexOf('ck-pack-')===0) return 'pack';
+    if(k.indexOf('ck-r1-')===0) return 'r1';
+    if(k.indexOf('ck-r2-')===0) return 'r2';
+    if(k.indexOf('ck-r3-')===0) return 'r3';
+    return null;
+  }
+  function paint(el){
+    var on=!!el.checked;
+    var tr=el.closest('tr');
+    if(tr){ tr.classList.toggle('done',on); return; }
+    var p=el.parentElement;
+    if(p && p.tagName==='DIV') p.classList.toggle('done',on);
+  }
+  function setTxt(id,a,b){
+    var ns=document.querySelectorAll('[data-prog="'+id+'"]');
+    for(var i=0;i<ns.length;i++){
+      ns[i].textContent=a+'/'+b;
+      if(ns[i].classList) ns[i].classList.toggle('full', b>0 && a>=b);
+    }
+  }
+  function update(){
+    var g={pack:[0,0],r1:[0,0],r2:[0,0],r3:[0,0]};
+    for(var i=0;i<boxes.length;i++){
+      var k=boxes[i].getAttribute('data-ck')||'', gp=grpOf(k);
+      if(!gp) continue;
+      g[gp][1]++; if(boxes[i].checked) g[gp][0]++;
+    }
+    setTxt('pack',g.pack[0],g.pack[1]);
+    setTxt('r1',g.r1[0],g.r1[1]); setTxt('r2',g.r2[0],g.r2[1]); setTxt('r3',g.r3[0],g.r3[1]);
+    var a=g.r1[0]+g.r2[0]+g.r3[0], b=g.r1[1]+g.r2[1]+g.r3[1];
+    setTxt('shoot',a,b);
+  }
+  // 恢复
+  for(var i=0;i<boxes.length;i++){
+    var k=boxes[i].getAttribute('data-ck')||'';
+    if(store[k]) boxes[i].checked=true;
+    paint(boxes[i]);
+  }
+  update();
+  // 变更
+  document.addEventListener('change',function(e){
+    var el=e.target;
+    if(!el||el.type!=='checkbox'||!el.getAttribute) return;
+    var k=el.getAttribute('data-ck'); if(!k) return;
+    if(el.checked) store[k]=1; else delete store[k];
+    save(); paint(el); update();
+  });
+  // 清空
+  document.addEventListener('click',function(e){
+    var b=e.target; if(!b||!b.closest) return;
+    b=b.closest('[data-clear]'); if(!b) return;
+    var scope=b.getAttribute('data-clear');
+    var tip = scope==='pack' ? '清空行前清单的所有勾选？' : '清空拍摄 RUNDOWN 的所有勾选？';
+    if(!window.confirm(tip)) return;
+    for(var i=0;i<boxes.length;i++){
+      var k=boxes[i].getAttribute('data-ck')||'';
+      var hit = scope==='pack' ? (k.indexOf('ck-pack-')===0)
+              : (scope==='shoot' ? (k.indexOf('ck-r')===0) : true);
+      if(!hit) continue;
+      boxes[i].checked=false; delete store[k]; paint(boxes[i]);
+    }
+    save(); update();
+  });
+})();
 </script>
 </body>
 </html>
